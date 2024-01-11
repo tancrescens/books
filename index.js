@@ -17,7 +17,17 @@ function App() {
     <>
       <div className="container">
         <h1>React Components</h1>
-        {loaded && data.books.map((book, i) => <Book data={book} key={i} />)}
+        {loaded &&
+          data.books.map((book, i) => (
+            <my-book
+              title={book.title}
+              subtitle={book.subtitle}
+              author={book.author}
+              publisher={book.publisher}
+              description={book.description}
+              key={i}
+            />
+          ))}
       </div>
     </>
   );
