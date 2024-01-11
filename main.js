@@ -1,6 +1,6 @@
 import "./books.js";
 
-window.addEventListener("Load", () => {
+window.addEventListener("load", () => {
   createBookList();
 });
 
@@ -10,7 +10,7 @@ async function createBookList() {
   const books = document.getElementById("books");
 
   json.books.forEach((book) => {
-    const element = document.createElement("book");
+    const element = document.createElement("my-book");
     element.book = book;
     books.appendChild(element);
   });
