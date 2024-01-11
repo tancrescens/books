@@ -1,4 +1,4 @@
-import "./books.js";
+import "./index.js";
 
 window.addEventListener("load", () => {
   createBookList();
