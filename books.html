@@ -14,7 +14,6 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     />
-    <script src="books.js" defer></script>
 
     <!-- local CSS -->
     <link rel="stylesheet" href="books.css" />
@@ -23,13 +22,8 @@
   <body>
     <div class="container">
       <h1>Books</h1>
-      <my-book
-        title="Cats"
-        subtitle="Cute cats"
-        author="their servants, humans"
-        publisher="Cattopedia"
-        description="Cats are notoriously cute and humans are honored to be graced with thier presence."
-      ></my-book>
+      <div id="books"></div>
     </div>
+    <script type="module" src="main.js" defer></script>
   </body>
 </html>

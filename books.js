@@ -1,39 +1,35 @@
 class Book extends HTMLElement {
   constructor() {
     super();
+  }
 
-    const title = this.getAttribute("title");
-    const subtitle = this.getAttribute("subtitle");
-    const author = this.getAttribute("author");
-    const publisher = this.getAttribute("publisher");
-    const description = this.getAttribute("description");
-
+  set book(book) {
     this.innerHTML = `
         <div class="card">
-            <h5 class="card-header">${title}</h5>
+            <h5 class="card-header">${book.title}</h5>
             <div class="card-body">
-                <h5>${subtitle}</h5>
+                <h5>${book.subtitle}</h5>
                 <p class="card-text">
                     <table class="table">
                         <tr>
                             <td class="text-success font-weight-bold">Title:</td>
-                            <td>${title}</td>
+                            <td>${book.title}</td>
                         </tr>
                         <tr>
                             <td class="text-success font-weight-bold">Subtitle:</td>
-                            <td>${subtitle}</td>
+                            <td>${book.subtitle}</td>
                         </tr>
                         <tr>
                             <td class="text-success font-weight-bold">Author:</td>
-                            <td>${author}</td>
+                            <td>${book.author}</td>
                         </tr>
                         <tr>
                             <td class="text-success font-weight-bold">Publisher:</td>
-                            <td>${publisher}</td>
+                            <td>${book.publisher}</td>
                         </tr>
                         <tr>
                             <td class="text-success font-weight-bold">Description:</td>
-                            <td>${description}</td>
+                            <td>${book.description}</td>
                         </tr>
                     </table>
                 </p>
@@ -43,18 +39,5 @@ class Book extends HTMLElement {
   }
 }
 
+// Define the elements
 customElements.define("my-book", Book);
-
-class Divv extends HTMLElement {
-  constructor() {
-    super();
-
-    const title = this.getAttribute("title");
-
-    this.innerHTML = `
-        <div>${title}</div>
-    `;
-  }
-}
-
-customElements.define("my-divv", Divv);
