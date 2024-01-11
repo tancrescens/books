@@ -1,43 +1,20 @@
-class Book extends HTMLElement {
-  constructor() {
-    super();
-  }
+function App() {
+  const [data, setData] = React.useState(null);
+  const [loaded, setLoaded] = React.useState(false);
 
-  set book(book) {
-    this.innerHTML = `
-        <div class="card">
-            <h5 class="card-header">${book.title}</h5>
-            <div class="card-body">
-                <h5>${book.subtitle}</h5>
-                <p class="card-text">
-                    <table class="table">
-                        <tr>
-                            <td class="text-success font-weight-bold">Title:</td>
-                            <td>${book.title}</td>
-                        </tr>
-                        <tr>
-                            <td class="text-success font-weight-bold">Subtitle:</td>
-                            <td>${book.subtitle}</td>
-                        </tr>
-                        <tr>
-                            <td class="text-success font-weight-bold">Author:</td>
-                            <td>${book.author}</td>
-                        </tr>
-                        <tr>
-                            <td class="text-success font-weight-bold">Publisher:</td>
-                            <td>${book.publisher}</td>
-                        </tr>
-                        <tr>
-                            <td class="text-success font-weight-bold">Description:</td>
-                            <td>${book.description}</td>
-                        </tr>
-                    </table>
-                </p>
-            </div>
-        </div>
-    `;
-  }
+  React.useEffect(() => {
+    async function getData() {
+      const response = await fetch("./books.json");
+      const json = await response.json();
+      setData(json);
+      setLoaded(true);
+    }
+  }, []);
+  console.log("loaded: ", loaded, "data: ", data);
+
+  return (
+    <>{loaded && data.books.map((book, i) => <Book data={book} key={i} />)}</>
+  );
 }
 
-// Define the elements
-customElements.define("my-book", Book);
+ReactDOM.render(<App />, document.getElementById("root"));

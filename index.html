@@ -9,21 +9,32 @@
     />
     <title>Bootcamp</title>
 
+    <!-- Load React -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- 
+      Load Babel
+      Don't use this in production: 
+    -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     />
 
-    <!-- local CSS -->
+    <!-- local CSS/JS -->
     <link rel="stylesheet" href="books.css" />
+    <script type="module" src="main.js" defer></script>
   </head>
 
   <body>
-    <div class="container">
-      <h1>Books</h1>
-      <div id="books"></div>
-    </div>
-    <script type="module" src="main.js" defer></script>
+    <div id="root"></div>
+
+    <!-- Load our react component. -->
+    <script src="books.js" defer type="text/babel"></script>
+    <script src="index.js" defer type="text/babel"></script>
   </body>
 </html>
